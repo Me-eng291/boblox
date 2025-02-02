@@ -25,3 +25,13 @@ a {
 a:hover {
     text-decoration: underline;
 }
+nav {
+    background-color: #222;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo {
+    height: 50px; /* Adjust size */
+    cursor: pointer;
+}
