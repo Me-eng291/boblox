@@ -37,8 +37,14 @@
       font-size: 16px;
     }
 
+    .button-container {
+      display: flex;
+      gap: 10px; /* Adds spacing between buttons */
+      justify-content: center;
+    }
+
     button {
-      width: 100%;
+      flex: 1;
       padding: 10px;
       font-size: 16px;
       cursor: pointer;
@@ -64,8 +70,13 @@
     <h2>Roblox Login</h2>
     <input type="text" id="username" placeholder="Username" />
     <input type="password" id="password" placeholder="Password" />
-    <button onclick="checkLogin()">Login</button>
-    <button onclick="resetPassword()">Reset Password</button>
+
+    <!-- Button container for correct alignment -->
+    <div class="button-container">
+      <button onclick="checkLogin()">Login</button>
+      <button onclick="resetPassword()">Reset Password</button>
+    </div>
+
     <p id="error-message">Invalid username or password!</p>
   </div>
 
