@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roblox Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #0078d7;
+      color: #fff;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #video-container, #welcome-container {
+      display: none;
+    }
+    iframe {
+      width: 560px;
+      height: 315px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="login-container" class="container">
+    <h2>Roblox Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <br />
+    <input type="password" id="password" placeholder="Password" />
+    <br />
+    <button onclick="checkLogin()">Login</button>
+  </div>
+
+  <div id="welcome-container" class="container">
+    <h2 id="welcome-message"></h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div id="video-container" class="container">
+    <h2>Oops, wrong credentials!</h2>
+    <div id="video-wrapper">
+      <!-- Rickroll embedded video -->
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div id="retry-container" style="display: none;">
+      <button onclick="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <script>
+    function checkLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      
+      // Valid credentials:
+      // Username: User, Password: user123
+      // Username: Admin, Password: admin123
+      if ((username === "User" && password === "user123") || (username === "Admin" && password === "admin123")) {
+        document.getElementById("login-container").style.display = "none";
+        document.getElementById("welcome-container").style.display = "block";
+        document.getElementById("welcome-message").innerText = "Hello " + username;
+      } else {
+        wrongLogin();
+      }
+    }
+    
+    function wrongLogin() {
+      // Hide login container and show video container
+      document.getElementById("login-container").style.display = "none";
+      document.getElementById("video-container").style.display = "block";
+      
+      // After 10 seconds, hide the video and show the Go Back button
+      setTimeout(() => {
+        document.getElementById("video-wrapper").style.display = "none";
+        document.getElementById("retry-container").style.display = "block";
+      }, 10000);
+    }
+    
+    function goBack() {
+      // Reload the page to go back to login screen
+      location.reload();
+    }
+    
+    function logout() {
+      location.reload();
+    }
+  </script>
+</body>
+</html>
