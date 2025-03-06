@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fake Roblox Login - Just for Fun</title>
+  <title>Roblox Login</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f0f0f0;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
-      position: relative;
     }
+
     .container {
       background: #fff;
       padding: 20px;
-      border: 1px solid #ddd;
       border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
     }
+
     input {
-      width: 80%;
+      width: 100%;
       padding: 10px;
       margin: 10px 0;
       font-size: 16px;
     }
+
     button {
-      padding: 10px 20px;
+      width: 100%;
+      padding: 10px;
       font-size: 16px;
       cursor: pointer;
       border: none;
@@ -39,85 +47,48 @@
       color: #fff;
       border-radius: 4px;
     }
+
     button:hover {
       background-color: #005fa3;
     }
-    .corner-warning {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      color: black;
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .error {
+
+    #error-message {
       color: red;
-      font-weight: bold;
       margin-top: 10px;
-    }
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
+      display: none;
     }
   </style>
 </head>
 <body>
-
-  <!-- Fake warning message -->
-  <p class="corner-warning">⚠️ This is NOT the real Roblox login page. Just a joke! ⚠️</p>
-
-  <div id="login-container" class="container">
+  <div class="container">
     <h2>Roblox Login</h2>
-    <input type="text" id="username" placeholder="Enter Username" />
-    <br />
-    <input type="password" id="password" placeholder="Enter Password" />
-    <br />
-    <button onclick="logIn()">Login</button>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="checkLogin()">Login</button>
     <button onclick="resetPassword()">Reset Password</button>
-    <p id="error-message" class="error"></p>
+    <p id="error-message">Invalid username or password!</p>
   </div>
-
-  <div id="fullscreen-container">
-    <iframe id="rickroll-video" src="" allowfullscreen></iframe>
-  </div>
-
-  <audio id="rickroll-audio" loop>
-    <source src="https://www.myinstants.com/media/sounds/rick-roll.mp3" type="audio/mpeg">
-  </audio>
 
   <script>
-    function logIn() {
+    function checkLogin() {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
       const errorMessage = document.getElementById("error-message");
 
-      if (username === "" && password !== "") {
-        errorMessage.innerText = "Invalid username!";
-      } else if (password === "" && username !== "") {
-        errorMessage.innerText = "Invalid password!";
-      } else if (username === "" && password === "") {
-        errorMessage.innerText = "Username and password required!";
-      } else {
-        goFullScreen();
+      if (!username || !password) {
+        errorMessage.style.display = "block";
+        return;
       }
+
+      // Redirect to Rickroll if valid credentials
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     }
 
     function resetPassword() {
-      // Play Rickroll audio on loop until user leaves
-      const audio = document.getElementById("rickroll-audio");
+      const audio = new Audio("https://www.myinstants.com/media/sounds/rickroll.mp3");
+      audio.loop = true;
       audio.play();
-      alert("Your password cannot be reset. Enjoy the music!");
-    }
-
-    function goFullScreen() {
-      const fullScreenDiv = document.getElementById("fullscreen-container");
-      const video = document.getElementById("rickroll-video");
-
-      video.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&loop=1";
-      fullScreenDiv.style.display = "flex";
     }
   </script>
-
 </body>
 </html>
