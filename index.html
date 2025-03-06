@@ -50,6 +50,28 @@
       font-weight: bold;
       font-size: 14px;
     }
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    #fullscreen-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -65,22 +87,47 @@
     <br />
     <button onclick="logIn()">Login</button>
     <button onclick="resetPassword()">Reset Password</button>
+    <p id="error-message" class="error"></p>
   </div>
 
-  <audio id="rickroll-audio">
+  <div id="fullscreen-container">
+    <iframe id="rickroll-video" src="" allowfullscreen></iframe>
+  </div>
+
+  <audio id="rickroll-audio" loop>
     <source src="https://www.myinstants.com/media/sounds/rick-roll.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     function logIn() {
-      // No validation, logs in with any input
-      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorMessage = document.getElementById("error-message");
+
+      if (username === "" && password !== "") {
+        errorMessage.innerText = "Invalid username!";
+      } else if (password === "" && username !== "") {
+        errorMessage.innerText = "Invalid password!";
+      } else if (username === "" && password === "") {
+        errorMessage.innerText = "Username and password required!";
+      } else {
+        goFullScreen();
+      }
     }
 
     function resetPassword() {
-      // Play Rickroll sound without YouTube
-      document.getElementById("rickroll-audio").play();
-      alert("Password reset is not available. Enjoy the music! 😂");
+      // Play Rickroll audio on loop until user leaves
+      const audio = document.getElementById("rickroll-audio");
+      audio.play();
+      alert("Your password cannot be reset. Enjoy the music!");
+    }
+
+    function goFullScreen() {
+      const fullScreenDiv = document.getElementById("fullscreen-container");
+      const video = document.getElementById("rickroll-video");
+
+      video.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&loop=1";
+      fullScreenDiv.style.display = "flex";
     }
   </script>
 
