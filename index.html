@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fake Roblox Login - Just for Fun!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Roblox Login - Just for Fun</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,13 +15,6 @@
       height: 100vh;
       margin: 0;
       position: relative;
-    }
-    .corner-text {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 12px;
-      color: black;
     }
     .container {
       background: #fff;
@@ -45,54 +38,51 @@
       background-color: #0078d7;
       color: #fff;
       border-radius: 4px;
-      margin: 5px;
     }
     button:hover {
       background-color: #005fa3;
     }
-    .error-message {
-      color: red;
+    .corner-warning {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: black;
+      font-weight: bold;
       font-size: 14px;
-      margin-top: 10px;
-      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="corner-text">This is not the real Roblox login page.</div>
+
+  <!-- Fake warning message -->
+  <p class="corner-warning">⚠️ This is NOT the real Roblox login page. Just a joke! ⚠️</p>
 
   <div id="login-container" class="container">
     <h2>Roblox Login</h2>
-    <input type="text" id="username" placeholder="Username" />
+    <input type="text" id="username" placeholder="Enter Username" />
     <br />
-    <input type="password" id="password" placeholder="Password" />
+    <input type="password" id="password" placeholder="Enter Password" />
     <br />
-    <button onclick="checkLogin()">Login</button>
-    <button onclick="resetPassword()">Reset Password</button> <!-- Buton resetare parolă -->
-    <p id="error-message" class="error-message">The username or password is invalid.</p>
-    <audio id="rickroll-audio">
-      <source src="https://www.myinstants.com/media/sounds/rickroll.mp3" type="audio/mpeg">
-    </audio>
+    <button onclick="logIn()">Login</button>
+    <button onclick="resetPassword()">Reset Password</button>
   </div>
 
+  <audio id="rickroll-audio">
+    <source src="https://www.myinstants.com/media/sounds/rick-roll.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-    function checkLogin() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      const errorMessage = document.getElementById("error-message");
-      
-      if ((username === "User" && password === "user123") || (username === "Admin" && password === "admin123")) {
-        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Redirect Rickroll
-      } else {
-        errorMessage.style.display = "block"; // Afișează mesaj de eroare
-      }
+    function logIn() {
+      // No validation, logs in with any input
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     }
 
     function resetPassword() {
-      const audio = document.getElementById("rickroll-audio");
-      audio.play(); // Redă sunetul Rickroll
-      alert("Check your email to reset your password! 😉"); // Mesaj fals pentru utilizator
+      // Play Rickroll sound without YouTube
+      document.getElementById("rickroll-audio").play();
+      alert("Password reset is not available. Enjoy the music! 😂");
     }
   </script>
+
 </body>
 </html>
