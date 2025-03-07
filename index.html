@@ -1,99 +1,130 @@
-<footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h2>LOGO</h2>
-      <a href="#" class="social-btn fb">Follow us on Tiktok</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Roblox Login</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Login Box */
+        .login-container {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px white;
+            width: 300px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .login-btn {
+            background-color: blue;
+            color: white;
+        }
+
+        .reset-btn {
+            background-color: red;
+            color: white;
+        }
+
+        /* Warning Message */
+        .warning {
+            margin-top: 20px;
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Warning Message -->
+    <div class="warning">⚠ WARNING: This is a FAKE Boblox login page! Do not enter real credentials.</div>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2>Roblox Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button class="login-btn" onclick="checkLogin()">Login</button>
+        <button class="reset-btn" onclick="resetPassword()">Reset Password</button>
     </div>
 
-    <div class="footer-section">
-      <h3>FREQUENTLY ASKED QUESTIONS</h3>
-      <ul>
-        <li><a href="#">Is this safe?</a></li>
-        <li><a href="#">This website is safe but please don't enver your real usernames and passwords.</a></li>
-        <li><a href="#">Is this the real roblox log-in page?</a></li>
-        <li><a href="#">No, this website is made only for fun.</a></li>
-      </ul>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Fake Roblox Login. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Security Policy</a></p>
     </div>
 
-  <!-- Fake Login Warning -->
-  <div class="warning">
-    ⚠️ WARNING: This is a **FAKE Roblox login page**. Do NOT enter real credentials.
-  </div>
-</footer>
+    <script>
+        function checkLogin() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
 
-<style>
-  footer {
-    background-color: #111;
-    color: white;
-    padding: 20px 0;
-    font-family: Arial, sans-serif;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
+            if (username && password) {
+                // Rickroll if all credentials are entered
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+                document.body.innerHTML = "<h1 style='color:white;'>Enjoy the music! 🎵</h1>";
+            } else if (username && !password) {
+                alert("Invalid password! Enter both username and password.");
+            } else if (!username && password) {
+                alert("Invalid username! Enter both username and password.");
+            } else {
+                alert("Please enter your credentials.");
+            }
+        }
 
-  .footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: left;
-  }
+        function resetPassword() {
+            let audio = new Audio("https://www.myinstants.com/media/sounds/never-gonna-give-you-up.mp3");
+            audio.loop = true;
+            audio.play();
 
-  .footer-section {
-    flex: 1;
-    margin: 10px;
-  }
+            document.body.innerHTML = "<h1 style='color:white;'>Music will keep playing until you leave! 🎵</h1>";
+        }
+    </script>
 
-  h2, h3 {
-    color: white;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  ul li a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  ul li a:hover {
-    color: #00bcd4;
-  }
-
-  .social-btn, .dispute-btn {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-  }
-
-  .dispute-btn {
-    background: purple;
-    color: white;
-    font-weight: bold;
-  }
-
-  .dispute-btn:hover {
-    background: #9400D3;
-  }
-
-  /* Warning Style */
-  .warning {
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    text-align: center;
-    margin-top: 20px;
-  }
-</style>
+</body>
+</html>
